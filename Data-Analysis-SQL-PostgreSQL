@@ -1,0 +1,25 @@
+##question 1:
+WITH overdue AS (
+    SELECT
+        reference,
+        date('2020-04-01') - due_date AS days_overdue
+    FROM invoices
+)
+SELECT count(*)
+FROM overdue
+WHERE days_overdue > 60;
+
+##question 2:
+##question 3:
+##question 4:
+##question 5:
+##question 6:
+##question 7:
+##question 8:
+##question 9:
+##question 10:
+##question 11:
+##question 12:
+##question 13:
+##question 14:
+##question 15:
