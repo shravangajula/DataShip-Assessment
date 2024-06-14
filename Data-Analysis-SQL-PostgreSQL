@@ -10,16 +10,94 @@ FROM overdue
 WHERE days_overdue > 60;
 
 ##question 2:
+SELECT type, count(*) as count
+FROM wine
+GROUP BY type
+ORDER BY type
+
 ##question 3:
+SELECT T.artist_id, COUNT(*) AS dance_hits
+FROM tracks AS T
+INNER JOIN features AS F                    
+ON T.id = F.song_id
+WHERE F.dance_level > 75                     
+GROUP BY T.artist_id
+ORDER BY dance_hits DESC, artist_id
+LIMIT 10;
+
 ##question 4:
+SELECT name, popularity
+FROM tracks
+ORDER BY popularity DESC
+LIMIT 10;
+
 ##question 5:
+SELECT item, energy, protein
+FROM food
+ORDER BY protein DESC;
+
 ##question 6:
+SELECT item,
+CASE WHEN energy > 300 THEN 'high'
+WHEN energy > 150 THEN 'medium'
+ELSE 'low' END AS calorie_rating
+FROM food                           
+ORDER BY item;
+
 ##question 7:
+WITH type_count AS (
+    SELECT type, count(id) AS bottle_count
+    FROM wine
+    GROUP BY type
+)
+SELECT max(bottle_count)
+FROM type_count
+
 ##question 8:
+SELECT artist_id, count(*) as artist_count
+FROM tracks
+GROUP BY artist_id
+ORDER BY artist_count DESC, artist_id
+LIMIT 5;
+
 ##question 9:
+select right ( "sports", 2 ) as sports_ extract ;
+
 ##question 10:
+SELECT name, followers
+FROM artists
+ORDER BY followers desc
+limit 10;
+
 ##question 11:
+SELECT CONCAT('TV', 'show') AS new_word;
+
 ##question 12:
+SELECT id, 
+    product, 
+    quantity,
+    SUM(quantity) OVER(PARTITION BY id) AS total
+FROM orders
+ORDER BY id, product
+LIMIT 5;
+
 ##question 13:
+SELECT name
+FROM hit_tracks AS t
+INNER JOIN features AS f
+ON (t.id = f.song_id) AND (t.dance = f.dance_level)
+ORDER BY name
+LIMIT 5;
+
 ##question 14:
+SELECT t.name, 
+    t.version,
+    f.dance_level
+FROM all_tracks AS t
+INNER JOIN song_features AS f
+    ON t.song_id = f.song_id AND t.version = f.version
+ORDER BY t.artist_id, t.song_id, t.version;
+
 ##question 15:
+SELECT ROUND (AVG (popularity), 0) AS avg_popularity
+FROM tracks;
