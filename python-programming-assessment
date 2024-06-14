@@ -1,9 +1,99 @@
-##Question 1:
-
-```python
+## Question 1:
 class Dog:
   def woof(self):
     return 'woof!'
-
 t = Dog()
 t.woof()
+
+## Question 2:
+with open('hello.txt', 'w') as file:
+  file.write("hello!")
+print(file.closed)
+
+## Question 3:
+boardgames = [
+  'Pandemic Legacy: Season 1',
+  'Terraforming Mars',
+  'Brass: Birmingham'
+]
+boardgames.insert(0, 'Gloomhaven')
+print(boardgames)
+
+## Question 4:
+def add_two(x: int) -> int:
+  """Adds two to an integer."""
+  return x + 2
+print(add_two(3))
+
+## Question 5:
+d = {          
+  'one': 1,
+  'two': 2,
+  'three': 3,
+  'four': 4
+}
+d.get('three')
+
+## Question 6:
+class Planet:
+  def __init__(self, name, diameter_km):
+    self.name = name
+    self.diameter_km = diameter_km
+e = Planet('Earth', 12742)
+print(e.name, e.diameter_km)
+
+## Question 7:
+def fun_docs():
+    """I know how to interact with the docstrings of a function."""
+    return None
+fun_docshelp(fun_docs)
+fun_docs.__doc__
+
+## Question 8:
+this_var = 30
+def func():
+  global this_var
+  this_var = 20
+  print(this_var)
+print(this_var)  # Prints 30
+func()
+print(this_var)
+
+## Question 9:
+def make_dict(**kwargs):
+  return kwargs
+make_dict(a=1, b=2)
+
+## Question 10:
+def add_many(*args):
+  s=0
+  for n in args:
+      s+=n
+  print(s)
+add_many(100,50,3)
+
+## Question 11:
+[i for i in range(5) if i > 2]
+
+## Question 12:
+class Candy:
+    flavor = 'sweet'
+    def __init__(self, name):
+c = Candy('chocolate')
+c.name
+
+## Question 13:
+class Color:
+    def __init__(self, rgb_value):
+      self.rgb_value = rgb_value
+c = Color('#00ff66')
+c.rgb_value
+
+## Question 14:
+[i * 3 for i in range(5)]
+
+## Question 15:
+a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+
+a.difference(b)
