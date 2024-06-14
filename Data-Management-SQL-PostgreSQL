@@ -1,0 +1,93 @@
+##question 1:
+SELECT *
+FROM movie_2000
+UNION
+SELECT *
+FROM movie_2010
+ORDER BY year;
+
+##question 2:
+SELECT category,
+item,
+AVG(price) AS avg_price
+FROM fruit_2022
+WHERE category IN ('fruit', 'cut_flowers')
+GROUP BY category, item;
+
+##question 3:
+SELECT COUNT(*)
+FROM vendors
+WHERE vendor_state IS NULL;
+
+##question 4:
+SELECT year, COUNT(*) AS n_of_movies
+FROM movie_budget
+GROUP BY year
+HAVING COUNT(*) > 3;
+
+##question 5:
+SELECT *
+FROM movie_budget
+WHERE title LIKE 'Star%';
+
+##question 6:
+SELECT vendor_name, vendor_city, vendor_state
+FROM vendors
+WHERE vendor_city = 'AUSTIN';
+
+##question 7:
+SELECT trip_id, duration, t_bike_id, last_date_in_use, color
+FROM bike_trips AS t
+INNER JOIN bike AS b
+ON t.bike_ID = b.bike_ID;
+
+##question 8:
+SELECT vendor_name,
+CONCAT(vendor_city, ', ', vendor_state) AS location
+FROM vendors
+LIMIT 5;
+
+##question 9:
+SELECT *
+FROM movie_2000
+UNION ALL
+SELECT *
+FROM movie_2010
+ORDER BY year;
+
+##question 10:
+SELECT name, city, state, count(*) AS duplicates
+FROM vendors
+GROUP BY name, city, state
+HAVING count(*) > 1;
+
+##question 11:
+SELECT variety,
+  EXTRACT(MONTH from date) :: NUMERIC AS month
+FROM fruit_2022;
+
+##question 12:
+SELECT model,price,
+CASE WHEN price < 100 THEN 'low'
+WHEN price > 1000 THEN 'high'
+ELSE 'medium'
+END AS price_level
+FROM speaker;
+
+##question 13:
+SELECT *
+FROM movie_budget
+WHERE title NOT LIKE '%a%'
+LIMIT 5;
+
+##question 14:
+SELECT vendor_name, zip_code
+FROM vendors
+WHERE LENGTH(zip_code) != 5;
+
+##question 15:
+SELECT *
+FROM movie_2000
+INTERSECT
+SELECT *
+FROM movie_2010;
