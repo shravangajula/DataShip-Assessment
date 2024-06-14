@@ -1,0 +1,9 @@
+**question 1:**
+class Dog:
+  def woof(self):
+    return 'woof!'
+
+t = Dog()
+t.woof()
+
+**question 2:**
