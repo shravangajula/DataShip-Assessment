@@ -67,7 +67,7 @@ SELECT variety,
 FROM fruit_2022;
 
 ##question 12:
-SELECT model,price,
+SELECT model, price,
 CASE WHEN price < 100 THEN 'low'
 WHEN price > 1000 THEN 'high'
 ELSE 'medium'
