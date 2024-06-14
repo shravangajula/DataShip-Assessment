@@ -46,7 +46,6 @@ print(e.name, e.diameter_km)
 def fun_docs():
     """I know how to interact with the docstrings of a function."""
     return None
-fun_docshelp(fun_docs)
 fun_docs.__doc__
 
 ## Question 8:
