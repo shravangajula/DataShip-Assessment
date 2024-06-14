@@ -1,9 +1,9 @@
-**question 1:**
+**Question 1:**
+
+```python
 class Dog:
   def woof(self):
     return 'woof!'
 
 t = Dog()
 t.woof()
-
-**question 2:**
